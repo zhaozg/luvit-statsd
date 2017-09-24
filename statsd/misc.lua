@@ -15,8 +15,8 @@ limitations under the License.
 --]]
 local math = require('math')
 local table = require('table')
-
-function exports.split(str, pat)
+local M = {}
+function M.split(str, pat)
   local t = {}  -- NOTE: use {n = 0} in Lua-5.0
   local fpat = "(.-)" .. pat
   local last_end = 1
@@ -35,11 +35,13 @@ function exports.split(str, pat)
   return t
 end
 
-function exports.trim(s)
+function M.trim(s)
   return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
 
-function exports.round(num, idp)
+function M.round(num, idp)
   local mult = 10^(idp or 0)
   return math.floor(num * mult + 0.5) / mult
 end
+
+return M

@@ -34,8 +34,8 @@ local function createMetrics()
 end
 
 require('tap')(function(test)
-  local Statsd = require('..').Statsd
-  local misc = require('../misc')
+  local Statsd = require('../statsd').Statsd
+  local misc = require('../../statsd/misc')
 
   test('test counters has stats count', function(expect)
     local sd = Statsd:new()
